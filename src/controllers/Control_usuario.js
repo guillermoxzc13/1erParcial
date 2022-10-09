@@ -1,17 +1,62 @@
 const usuario = require('../model/modelo_usuario');
 ctrlusuario = {};
 
-ctrlusuario.post = async(req, res)=>{
-    const {Nombre, contraseña}= req.body
+const bcryt = require("bcrypt");
 
-    const nuevoUsuario = new usuario({
-        Nombre,
-        contraseña
-    })     
+const generarJWT = require('../helpers/generartoken');
 
-    await nuevoUsuario.save()
+ctrlusuario.registro = async(req, res)=>{
+    const {nombre,email,contraseña} = req.body
+    const nuevacontraseña = bcryt.hashSync(contraseña, 10)
+    const nuevousuario = new usuario({
 
-    res.json("usuario creado")
+        nombre,
+        contraseña: nuevacontraseña,
+        email
+    })
+    
+      await  nuevousuario.save()
+
+}
+
+ctrlusuario.login = async(req,res)=>{
+
+    const {nombre,contraseña} = req.body
+    const usuarioo = await usuario.findOne({nombre})
+
+    const validarcontraseña = bcryt.compareSync(contraseña,usuarioo.contraseña)
+
+    if (validarcontraseña){
+        const token= await generarJWT({uid:usuarioo._id})
+        res.json(token)
+    }
+
+
+}
+
+ctrlusuario.put = async (req, res) =>{
+
+    const {nombre, email,contraseña} = req.body 
+
+    const nuevacontraseña = bcryt.hashSync(contraseña,10)
+    const actualizarusuario = await usuario.updateOne({_id:req.user._id},{
+        
+        $set: {
+            nombre,
+            email,
+            contraseña:nuevacontraseña
+        }
+    });
+    res.json(actualizarusuario +"usuario actualizada")
+
+
+} 
+
+ctrlusuario.deletee = async (req, res)=>{
+    const eliminarusuario = await usuario.findByIdAndDelete({_id:req.user._id})
+
+    res.json(eliminarusuario)
+
 }
 
 

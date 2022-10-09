@@ -8,7 +8,7 @@ ctrlTareas.post = async (req, res) => {
     const NuevaTareas = new Tareas({
         titulo,
         descripcion,
-        
+        userId:req.user._id
     });
     await NuevaTareas.save()
    res.json("tarea creada")
