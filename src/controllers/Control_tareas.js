@@ -15,14 +15,14 @@ ctrlTareas.post = async (req, res) => {
 }
 
     ctrlTareas.get = async (req, res) =>{
-        const obterTareas = await Tareas.find()
+        const obterTareas = await Tareas.find({userId:req.user._id})
         res.json(obterTareas)
     }
 
     ctrlTareas.put = async (req, res) =>{
         const id = req.params.id
         const {titulo, descripcion} = req.body 
-        const actualizarTarea = await Tareas.updateOne({_id:id},{
+        const actualizarTarea = await Tareas.updateOne({_id:id,userId:req.user._id},{
             
             $set: {
                 titulo, descripcion
@@ -36,7 +36,7 @@ ctrlTareas.post = async (req, res) => {
     ctrlTareas.Delete =  async (req,res) =>{
         const id = req.params.id;
         const {titulo,descripcion} = req.body
-        const eliminarTarea = await Tareas.deleteOne({_id:id})
+        const eliminarTarea = await Tareas.deleteOne({_id:id,userId:req.user._id})
     
         res.json(eliminarTarea + "tarea eliminada")
     }

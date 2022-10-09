@@ -15,8 +15,8 @@ ctrlusuario.registro = async(req, res)=>{
         email
     })
     
-      await  nuevousuario.save()
-
+      const guardarusuario = await  nuevousuario.save()
+    res.json(guardarusuario)
 }
 
 ctrlusuario.login = async(req,res)=>{
