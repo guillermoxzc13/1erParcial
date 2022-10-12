@@ -9,13 +9,14 @@ ctrlusuario.registro = async(req, res)=>{
     const {nombre,email,contraseña} = req.body
     const nuevacontraseña = bcryt.hashSync(contraseña, 10)
     const nuevousuario = new usuario({
-
+        
         nombre,
         contraseña: nuevacontraseña,
         email
     })
     
       const guardarusuario = await  nuevousuario.save()
+      
     res.json(guardarusuario)
 }
 
@@ -23,13 +24,20 @@ ctrlusuario.login = async(req,res)=>{
 
     const {nombre,contraseña} = req.body
     const usuarioo = await usuario.findOne({nombre})
+    
 
-    const validarcontraseña = bcryt.compareSync(contraseña,usuarioo.contraseña)
-
-    if (validarcontraseña){
-        const token= await generarJWT({uid:usuarioo._id})
-        res.json(token)
+    if(!usuarioo){
+        res.json("no existe usuario")
     }
+    
+    const validarcontraseña = bcryt.compareSync(contraseña,usuarioo.contraseña)
+    
+    if (!validarcontraseña){
+        res.json("contraseña incorrecta")
+    }
+
+    const token= await generarJWT({uid:usuarioo._id})
+    res.json(token)
 
 
 }
