@@ -22,7 +22,7 @@ ctrlusuario.registro = async(req, res)=>{
 
 ctrlusuario.get = async (req,res)=>{
     try {
-        const users = await usuario.find()
+        const users = await usuario.find({isactive: true})
     return res.json({
         msg: 'Usuarios registrados',
         users
@@ -54,7 +54,7 @@ ctrlusuario.put = async (req, res) =>{
 } 
 
 ctrlusuario.deletee = async (req, res)=>{
-    const eliminarusuario = await usuario.findByIdAndDelete({_id:req.user._id})
+    const eliminarusuario = await usuario.findByIdAndUpdate({_id:req.user._id}, {isactive: false})
 
     res.json(eliminarusuario)
 

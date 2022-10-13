@@ -17,8 +17,7 @@ const usuarioSchema = new Schema({
     },
     email:{
         type:String,
-        require: true,
-        unique:true
+        require: true
     },
     isactive:{
         type: Boolean,

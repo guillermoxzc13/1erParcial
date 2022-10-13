@@ -40,6 +40,14 @@ ctrlTareas.post = async (req, res) => {
     
         res.json(eliminarTarea + "tarea eliminada")
     }
+
+    ctrlTareas.completo = async(req,res)=>{
+
+        const id = req.params.id;
+        const completartarea = await Tareas.updateOne({_id:id,userId:req.user._id}, {isdone: true})
+
+        res.json(completartarea)
+    }
     
 
 module.exports = ctrlTareas;

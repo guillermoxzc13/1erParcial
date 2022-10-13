@@ -10,6 +10,10 @@ const TareaSchema = new Schema({
         type: String,
         required: true
     },
+    isdone:{
+        type:Boolean,
+        default:false
+    },
     userId: {
         type: Schema.Types.ObjectId, ref: 'Users'
     },

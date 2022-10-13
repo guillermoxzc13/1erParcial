@@ -6,5 +6,5 @@ const validarJWT = require("../middlewares/validartoken");
 router.get("/get",validarJWT,get)
 router.post("/registro", registro)
 router.put("/actualizar",validarJWT,put)
-router.delete("/eliminar",validarJWT, deletee)
+router.put("/eliminar",validarJWT, deletee)
 module.exports= router;
