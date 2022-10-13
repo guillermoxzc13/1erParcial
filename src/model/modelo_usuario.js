@@ -5,6 +5,11 @@ const usuarioSchema = new Schema({
     nombre: {
         type: String,
         required: true,
+        
+    },
+    apellido:{
+        type: String,
+        require: true,
     },
     contraseña: {
         type: String,
@@ -12,7 +17,8 @@ const usuarioSchema = new Schema({
     },
     email:{
         type:String,
-        require: true
+        require: true,
+        unique:true
     },
     isactive:{
         type: Boolean,

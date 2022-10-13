@@ -19,10 +19,10 @@ const TareaSchema = new Schema({
 });
 
 TareaSchema.methods.toJSON = function() {
-    const { _id, ...user } = this.toObject();
-    user.uid = _id;
+    const { _id, ...Tareas } = this.toObject();
+    Tareas.uid = _id;
 
-    return user;
+    return Tareas;
 }
 
 

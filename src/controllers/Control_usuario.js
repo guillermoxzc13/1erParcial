@@ -6,7 +6,7 @@ const bcryt = require("bcrypt");
 const generarJWT = require('../helpers/generartoken');
 
 ctrlusuario.registro = async(req, res)=>{
-    const {nombre,email,contraseña} = req.body
+    const {nombre,aellidop,email,contraseña} = req.body
     const nuevacontraseña = bcryt.hashSync(contraseña, 10)
     const nuevousuario = new usuario({
         
