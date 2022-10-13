@@ -10,7 +10,7 @@ ctrlAuth.iniciarSesion = async (req, res) => {
     const { nombre, contraseña } = req.body;
 
     try {
-        // Buscar si el usuario pertenece a nuestro sistema
+        
         const usuarios = await User.findOne({ nombre });
 
         if (!usuarios) {

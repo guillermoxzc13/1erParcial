@@ -6,7 +6,7 @@ const bcryt = require("bcrypt");
 const generarJWT = require('../helpers/generartoken');
 
 ctrlusuario.registro = async(req, res)=>{
-    const {nombre,aellidop,email,contraseña} = req.body
+    const {nombre,email,contraseña} = req.body
     const nuevacontraseña = bcryt.hashSync(contraseña, 10)
     const nuevousuario = new usuario({
         
@@ -56,7 +56,7 @@ ctrlusuario.put = async (req, res) =>{
 ctrlusuario.deletee = async (req, res)=>{
     const eliminarusuario = await usuario.findByIdAndUpdate({_id:req.user._id}, {isactive: false})
 
-    res.json(eliminarusuario)
+    res.json("usuario eliminado ")
 
 }
 
