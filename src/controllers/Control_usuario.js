@@ -1,4 +1,5 @@
 const usuario = require('../model/modelo_usuario');
+const tareas = require("../model/modelo_tareas")
 ctrlusuario = {};
 
 const bcryt = require("bcrypt");
@@ -48,15 +49,16 @@ ctrlusuario.put = async (req, res) =>{
             contraseña:nuevacontraseña
         }
     });
-    res.json(actualizarusuario +"usuario actualizada")
+    res.json(200).json(actualizarusuario +"usuario actualizada")
 
 
 } 
 
 ctrlusuario.deletee = async (req, res)=>{
+    await tareas.updateMany({userId:req.user._id},{isactive:false})
     const eliminarusuario = await usuario.findByIdAndUpdate({_id:req.user._id}, {isactive: false})
 
-    res.json("usuario eliminado ")
+    res.json(200).json("usuario eliminado ")
 
 }
 

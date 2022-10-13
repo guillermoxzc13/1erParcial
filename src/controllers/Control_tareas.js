@@ -35,7 +35,7 @@ ctrlTareas.post = async (req, res) => {
 
     ctrlTareas.Delete =  async (req,res) =>{
         const id = req.params.id;
-        const {titulo,descripcion} = req.body
+
         const eliminarTarea = await Tareas.deleteOne({_id:id,userId:req.user._id})
     
         res.json(eliminarTarea + "tarea eliminada")
@@ -46,7 +46,7 @@ ctrlTareas.post = async (req, res) => {
         const id = req.params.id;
         const completartarea = await Tareas.updateOne({_id:id,userId:req.user._id}, {isdone: true})
 
-        res.json(completartarea)
+        res.status(200).json(completartarea)
     }
     
 
