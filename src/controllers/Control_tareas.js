@@ -28,7 +28,7 @@ ctrlTareas.post = async (req, res) => {
                 titulo, descripcion
             }
         });
-        res.json(actualizarTarea +"tarea actualizada")
+        res.json("tarea actualizada")
     
 
     } 

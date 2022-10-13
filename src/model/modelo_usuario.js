@@ -13,10 +13,21 @@ const usuarioSchema = new Schema({
     email:{
         type:String,
         require: true
+    },
+    isactive:{
+        type: Boolean,
+        default: true
     }
    
 },{
     versionKey:false
 });
+
+usuarioSchema.methods.toJSON = function() {
+    const { contraseña, _id, ...user } = this.toObject();
+    user.uid = _id;
+
+    return user;
+}
 
 module.exports = model('usuarios', usuarioSchema);

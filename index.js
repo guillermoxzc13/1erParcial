@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 // Importando rutas
 app.use(require("./src/routes/rutas_usuario"));
 app.use(require("./src/routes/rutas_tareas"));
+app.use(require("./src/routes/auth.routes"));
 
 
 

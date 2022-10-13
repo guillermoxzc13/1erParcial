@@ -20,26 +20,19 @@ ctrlusuario.registro = async(req, res)=>{
     res.json(guardarusuario)
 }
 
-ctrlusuario.login = async(req,res)=>{
-
-    const {nombre,contraseña} = req.body
-    const usuarioo = await usuario.findOne({nombre})
-    
-
-    if(!usuarioo){
-        res.json("no existe usuario")
+ctrlusuario.get = async (req,res)=>{
+    try {
+        const users = await usuario.find()
+    return res.json({
+        msg: 'Usuarios registrados',
+        users
+    })
+    } catch (error) {
+        console.log(error)
+        return res.json({
+            msg: 'Error al encontrar el usuario'
+        })
     }
-    
-    const validarcontraseña = bcryt.compareSync(contraseña,usuarioo.contraseña)
-    
-    if (!validarcontraseña){
-        res.json("contraseña incorrecta")
-    }
-
-    const token= await generarJWT({uid:usuarioo._id})
-    res.json(token)
-
-
 }
 
 ctrlusuario.put = async (req, res) =>{

@@ -13,8 +13,17 @@ const TareaSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId, ref: 'Users'
     },
-},{
+},
+{
     versionKey:false
 });
+
+TareaSchema.methods.toJSON = function() {
+    const { _id, ...user } = this.toObject();
+    user.uid = _id;
+
+    return user;
+}
+
 
 module.exports = model("tareas", TareaSchema);

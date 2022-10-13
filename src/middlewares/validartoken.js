@@ -8,9 +8,7 @@ const validarJWT = async (req, res, next) => {
 
     
     if (!token) {
-        return res.status(401).json({
-            msg: 'Error de autenticación - No hay token en la petición'
-        })
+        return res.json('Error de autenticación - No hay token en la petición') 
     };
 
 
@@ -22,23 +20,16 @@ const validarJWT = async (req, res, next) => {
         const usuario = await User.findById(uid)
 
         if (!usuario) {
-            return res.status(401).json({
-                error: 'Token no válido - usuario no existe en BD'
-            });
+            return res.json ('Token no válido - usuario no existe en BD')
         }
 
-     
-
-        
         req.user = usuario;
 
         
         next();
     } catch (error) {
         console.log(error);
-        res.status(401).json({
-            msg: 'Error de autenticación - Token no válido'
-        })
+        res.json ('Error de autenticación - Token no válido')
     }
 }
 
