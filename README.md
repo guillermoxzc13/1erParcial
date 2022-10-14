@@ -18,6 +18,7 @@ primero se registra como usuario
 
 # HTTP: POST :http://localhost:4000/registro
 En el body debe seguir la siguiente estructura. 
+
 			{
 			nombre:nombrequedesee,
 			email:correoquedesee,
@@ -27,23 +28,24 @@ En el body debe seguir la siguiente estructura.
 luego debe Iniciar Sesión  con el usuario anteriormente creado
 
  # HTTP: POST :http://localhost:4000/login
-				 En el body debe seguir la siguiente estructura.
+En el body debe seguir la siguiente estructura.
+		
+			{nombre:nombre,
+			contraseña:contraseña
+			
 
-  
-  
-  
   
   # Una vez reciba el Token, cópielo y uselo como header token en su cliente y así acceder a las funciones:
   
   * HTTP: PUT: http://localhost:4000/actualizar
-  * en el body debe seguir la siguiente estructura 
-  ` 
-  {
-	"nombre":"",
-	"contraseña":"",
-    	"email":""
-	}
-	`
+  En el body debe seguir la siguiente estructura 
+   
+ 		 	{
+			"nombre":"",
+			"contraseña":"",
+    			"email":""
+			}
+	
   
   * HTTP: GET: http://localhost:4000/get
   
