@@ -14,7 +14,7 @@ Para ejecutar el proyecto en modo Desarrollo, ejecutar el siguiente comando:
 
 ## Usos 
 
-primero se registra como usuario
+`primero se registra como usuario`
 
 # HTTP: POST :http://localhost:4000/registro
 En el body debe seguir la siguiente estructura. 
@@ -53,8 +53,25 @@ En el body debe seguir la siguiente estructura.
   
   # funciones de tareas con el token validado 
   
-  # HTTP: GET http://localhost:4000/task
+  # HTTP: GET http://localhost:4000/tareas
   `sirve para ver todas las tareas el usuario logeado`
   
+  # HTTP: POST: http://localhost:4000/tareas
+  
+  En el body se  requiere la siguiente estructura para crear una tarea
+  
+  			{
+			"titulo":"nombredeltitulo"
+  			"descripcion":"descripcion"
+			
+  # HTTP: PUT: http://localhost:4000/tareas/id(de la tarea creada)
+  `sirve para actualizar las tareas`}
+  
+  # HTTP: PUT: http://localhost:4000/completar/id(de la tarea)
+  `sirve para marcar como completa la tarea`
+  
+  # HTTP: DELETE: http://localhost:4000/tareas/id(de la tarea que desea eliminar)
+
+
   
   
