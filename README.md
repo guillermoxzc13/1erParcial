@@ -65,12 +65,16 @@ En el body debe seguir la siguiente estructura.
   			"descripcion":"descripcion"
 			
   # HTTP: PUT: http://localhost:4000/tareas/id(de la tarea creada)
-  `sirve para actualizar las tareas`}
+  	
+	`sirve para actualizar las tareas`
   
   # HTTP: PUT: http://localhost:4000/completar/id(de la tarea)
-  `sirve para marcar como completa la tarea`
+  	
+	`sirve para marcar como completa la tarea`
   
   # HTTP: DELETE: http://localhost:4000/tareas/id(de la tarea que desea eliminar)
+  	
+	`sirve para eliminar la tarea`
 
 
   
