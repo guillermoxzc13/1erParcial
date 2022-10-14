@@ -1,40 +1,37 @@
 # 1erParcial
 
-# Servidor p/ 1er Parcial: Programación II
+#  Servidor p/ 1er Parcial: Programación II
 
-# para ejecutar se debe tener instalado Node.js y npm.
+# Para ejecutar se debe tener instalado Node.js y npm.
 
-* Para Instalar las dependencias:
- `npm i`
+Para Instalar las dependencias:
 
-* Para ejecutar el proyecto en modo Desarrollo, ejecutar el siguiente comando:
- `npm run dev`
+`npm i`
 
-# Usos
+Para ejecutar el proyecto en modo Desarrollo, ejecutar el siguiente comando:
 
-* primero se registra como usuario
+`npm run dev`
+
+## Usos 
+
+primero se registra como usuario
 
 # HTTP: POST :http://localhost:4000/registro
+		 En el body debe seguir la siguiente estructura. 
+			{
+			nombre:nombrequedesee,
+			email:correoquedesee,
+			contraseña:contraseñaquedesee
+			}`
+			
+luego debe Iniciar Sesión  con el usuario anteriormente creado
 
- * en el body debe seguir la siguiente estructura. 
+ # HTTP: POST :http://localhost:4000/login
+				 En el body debe seguir la siguiente estructura.
 
- 	`{
- 	nombre:nombrequedesee,
-  	email:correoquedesee,
-  	contraseña:contraseñaquedesee
-	}`
   
-  * luego debe logearse con el usuario anteriormente creado
   
-  # HTTP: POST :http://localhost:4000/login
-
- 	* en el body debe seguir la siguiente estructura.
   
-  `
-  nombre:sunombre,
-  contraseña:sucontraseña
-  
-  `
   
   # Una vez reciba el Token, cópielo y uselo como header token en su cliente y así acceder a las funciones:
   
