@@ -18,12 +18,10 @@
 
  * en el body debe seguir la siguiente estructura 
 
- `
- {
- 	nombre:nombrequedesee,
-  	email:correoquedesee,
-  	contraseña:contraseñaquedesee
-	
+ `{
+ nombre:nombrequedesee,
+  email:correoquedesee,
+  contraseña:contraseñaquedesee
 	}`
   
   * luego debe logearse con el usuario anteriormente creado
