@@ -23,7 +23,7 @@
   
   *luego debe logearse con el usuario anteriormente creado
   
-  ##HTTP: POST :http://localhost:4000/login
+  #HTTP: POST :http://localhost:4000/login
 
 *en el body debe seguir la siguiente estructura
   `nombre:sunombre,
