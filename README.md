@@ -18,10 +18,12 @@
 
  * en el body debe seguir la siguiente estructura 
 
- `json
- {nombre:nombrequedesee,
+ `
+ {
+ 	nombre:nombrequedesee,
   	email:correoquedesee,
-  contraseña:contraseñaquedesee}`
+  	contraseña:contraseñaquedesee
+	}`
   
   * luego debe logearse con el usuario anteriormente creado
   
