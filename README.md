@@ -16,22 +16,24 @@
 
 # HTTP: POST :http://localhost:4000/registro
 
- * en el body debe seguir la siguiente estructura 
+ * en el body debe seguir la siguiente estructura. 
 
- `{
- nombre:nombrequedesee,
-  email:correoquedesee,
-  contraseña:contraseñaquedesee
+ 		`{
+ 	nombre:nombrequedesee,
+  	email:correoquedesee,
+  	contraseña:contraseñaquedesee
 	}`
   
   * luego debe logearse con el usuario anteriormente creado
   
   # HTTP: POST :http://localhost:4000/login
 
- * en el body debe seguir la siguiente estructura
+ 	* en el body debe seguir la siguiente estructura.
+  
   `
   nombre:sunombre,
   contraseña:sucontraseña
+  
   `
   
   # Una vez reciba el Token, cópielo y uselo como header token en su cliente y así acceder a las funciones:
