@@ -2,7 +2,7 @@
 
 # Servidor p/ 1er Parcial: Programación II
 
-# ara ejecutar se debe tener instalado Node.js y npm.
+# para ejecutar se debe tener instalado Node.js y npm.
 
 * Para Instalar las dependencias:
  `npm i`
@@ -17,8 +17,10 @@
 # HTTP: POST :http://localhost:4000/registro
 
  * en el body debe seguir la siguiente estructura 
- `{nombre:nombrequedesee,
-  email:correoquedesee,
+
+ `json
+ {nombre:nombrequedesee,
+  	email:correoquedesee,
   contraseña:contraseñaquedesee}`
   
   * luego debe logearse con el usuario anteriormente creado
