@@ -17,7 +17,7 @@ Para ejecutar el proyecto en modo Desarrollo, ejecutar el siguiente comando:
 primero se registra como usuario
 
 # HTTP: POST :http://localhost:4000/registro
-		 En el body debe seguir la siguiente estructura. 
+En el body debe seguir la siguiente estructura. 
 			{
 			nombre:nombrequedesee,
 			email:correoquedesee,
